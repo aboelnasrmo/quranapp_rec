@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restapicourse/cubit/quran_cubit.dart';
+import 'package:restapicourse/views/rec_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,9 +22,20 @@ class HomePage extends StatelessWidget {
             return ListView.builder(
               itemCount: state.reciters.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(state.reciters[index].name),
-                  subtitle: Text(state.reciters[index].moshaf.toString()),
+                final reciter = state.reciters[index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ReciterDetailsPage(reciter: reciter),
+                      ),
+                    );
+                  },
+                  child: ListTile(
+                    title: Text(state.reciters[index].name),
+                    subtitle: Text(state.reciters[index].id.toString()),
+                  ),
                 );
               },
             );
