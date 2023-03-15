@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Rest API'),
+        title: const Text('Quran'),
       ),
       body: BlocBuilder<QuranCubit, QuranState>(
         builder: (context, state) {

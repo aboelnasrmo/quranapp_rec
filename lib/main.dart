@@ -26,10 +26,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Rest API',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          primarySwatch: Colors.blue,
-        ),
+        themeMode: ThemeMode.dark,
+        darkTheme: ThemeData.dark(),
         home: const HomePage(),
       ),
     );
